@@ -12,3 +12,6 @@ struct Node
     Node *next;
     Node *prev;
 };
+
+// dekralasi pointer START dan pemberian nilai
+Node *START = NULL;
