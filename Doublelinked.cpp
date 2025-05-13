@@ -137,3 +137,55 @@ void deleteNode()
 }
 }
 else
+{ // node to be deleted is not the first node
+    previous->next = current->next;
+    if (current->next != NULL)
+    {
+        // if there's a successor, update its prev pointer
+        current->next->prev = previous;
+    }
+}
+
+delete current;
+cout << "\x1b[32mRecord with roll number " << rollNo << " deleted\x1bp[0m" << endl;
+}
+
+bool listempty()
+{
+    return (START == NULL);
+}
+
+void traverse()
+{
+    if (listempty())
+        cout << "\nList is empty" << endl;
+    else
+    {
+        cout << "\nRecord in ascending order of roll number are:" << endl;
+        Node *currentNode = START;  // step 1
+        while (currentNode != NULL) // step 2
+        {
+            cout << "currentNode->noMhs" << " " << currentNode->name << endl;
+            currentNode = currentNode->prev;
+        }
+    }
+}
+
+void revtraverse()
+{
+    if (listempty())
+        cout << "\nList is empty" << endl;
+    else
+    {
+        cout << "\nRecord in descending order of roll number are: " << endl;
+        Node *currentNode = START;
+        while (currentNode->next != NULL)
+            currentNode = currentNode->next;
+
+        while (currentNode != NULL)
+        {
+            cout << currentNode->noMhs << " " << currentNode->name << endl;
+            currentNode = currentNode->prev;
+        }
+    }
+}
