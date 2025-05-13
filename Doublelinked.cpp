@@ -64,3 +64,27 @@ void addNode()
             previous = current;      // step 1.d: move the previous to the current
             current = current->next; // step 1.e: move the curernt to the next
         }
+
+        // set nilai next node baru = current dan prev node baru = previous
+        newNode->next = current;  // step 4: Make the next field of the new node
+        newNode->prev = previous; // step 5: Make the previous field of the new
+
+        // kondisi jika current tidak sama dengan null
+        if (current != NULL)
+        {
+            current->prev = newNode; // step 6: make the previous feild of the current
+        }
+
+        // kondisi jika current tidak sama dengan null
+        if (current != NULL)
+        {
+            previous->next = newNode; // step 7 make the next field of the previous
+        }
+        // konidisi jika if previous sama dengan null
+        else
+        {
+            // if previous is still NULL, it means newNode is now the first node
+            START = newNode;
+        }
+    }
+}
